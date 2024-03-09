@@ -1,0 +1,90 @@
+{
+  "roadmap": {
+    "title": "Flutter State Management",
+    "step": [
+      {
+        "title": "Uvod u Flutter",
+        "description": "Osnovni koncepti Fluttera, instalacija i pravljenje prve aplikacije.",
+        "pitanja": {
+          "question": [
+            "Što je Flutter i zašto se koristi?",
+            "Kako instalirati Flutter?",
+            "Kako napraviti prvu Flutter aplikaciju?"
+          ]
+        }
+      },
+      {
+        "title": "Principi izrade sučelja u Flutteru",
+        "description": "Upoznavanje s widgetima, layoutima i navigacijom.",
+        "pitanja": {
+          "question": [
+            "Što su widgeti i kako se koriste?",
+            "Što su layout widgeti i kako organiziraju sučelje?",
+            "Kako implementirati navigaciju između stranica?"
+          ]
+        }
+      },
+      {
+        "title": "Osnove state managementa",
+        "description": "Razumijevanje što je state i kako se upravlja stanjem u Flutter aplikacijama.",
+        "pitanja": {
+          "question": [
+            "Što je state u kontekstu Fluttera?",
+            "Koji su osnovni pristupi upravljanju stanjem?",
+            "Što je lokalno a što globalno stanje?"
+          ]
+        }
+      },
+      {
+        "title": "Provider paket",
+        "description": "Upoznavanje s Provider paketom za upravljanje stanjem.",
+        "pitanja": {
+          "question": [
+            "Kako Provider paket pomaže u upravljanju stanjem?",
+            "Kako se koristi Provider za dijeljenje podataka između widgeta?"
+          ]
+        }
+      },
+      {
+        "title": "Riverpod",
+        "description": "Upoznavanje s Riverpodom kao fleksibilnom alternativom Provideru.",
+        "pitanja": {
+          "question": [
+            "Što je Riverpod i kako se razlikuje od Providera?",
+            "Kako koristiti Riverpod za upravljanje stanjem?"
+          ]
+        }
+      },
+      {
+        "title": "Bloc Pattern",
+        "description": "Učenje o Bloc patternu za kompleksno upravljanje stanjem.",
+        "pitanja": {
+          "question": [
+            "Što je Bloc pattern i kada ga treba koristiti?",
+            "Kako implementirati Bloc pattern u Flutter aplikaciji?"
+          ]
+        }
+      },
+      {
+        "title": "Pravilno testiranje Flutter aplikacija",
+        "description": "Načini na koje se može testirati upravljanje stanjem u Flutter aplikacijama.",
+        "pitanja": {
+          "question": [
+            "Kako testirati widgete koji koriste state management?",
+            "Koji alati su dostupni za testiranje Flutter aplikacija?"
+          ]
+        }
+      },
+      {
+        "title": "Stvarni projekti i praksa",
+        "description": "Primjena naučenog znanja kroz rad na stvarnim projektima.",
+        "pitanja": {
+          "question": [
+            "Kako započeti s vlastitim projektom koristeći naučene tehnike upravljanja stanjem?",
+            "Koji su dobri resursi i zajednice za daljnje učenje i dobivanje pomoći?"
+          ]
+        }
+      }
+    ]
+  }
+}

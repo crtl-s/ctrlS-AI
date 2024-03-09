@@ -1,6 +1,9 @@
 const express = require('express');
+const lekcija = require('./generiranjeLekcije');
+const pitanja = require('./chatWithExpert');
 const cors = require('cors');
 require('dotenv').config();
+
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -15,7 +18,27 @@ app.use(function (req, res, next) {
 })
 
 
+app.post('/generateRoadmap', async (req, res) => {
+    const { tema } = req.body;
+    const data = await lekcija.generateRoadmap(tema);
+    res.status(200).json(data);
+});
 
+app.post('/askQuestion', async (req, res) => {
+    const { lekcija, razgovor } = req.body;
+    const data = await pitanja.askQuestion(lekcija, razgovor);
+    res.status(200).json(data);
+});
+
+// tri stila učenja
+// angdote, analogies, oversimplify
+
+
+app.post('/generateLecture', async (req, res) => {
+    const { tema, cjelina, vrstaUcenja } = req.body;
+    const data = await lekcija.generateLection(tema, cjelina, vrstaUcenja);
+    res.status(200).json(data);
+});
 app.get('/status', (req, res) => {
     res.status(200).json({ status: 'API radi' });
 });
