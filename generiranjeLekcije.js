@@ -52,11 +52,10 @@ async function generatePersonalizedRoadmap(tema, roadmap) {
     return response;
 }
 
-async function generateLection(tema, cjelina, vrstaUcenja) {
-    // systemMessage = prepareDataForSystemMessage(tema, 0);
-
-    // logika
-    data = { 'tema': tema, 'cjelina': cjelina, 'vrstaUcenja': vrstaUcenja };
+async function generateLection(ime_lekcije, vrstaUcenja) {
+    systemMessage = message.lectureSystemMessage(vrstaUcenja);
+    response = await generateAiResponse(ime_lekcije, systemMessage);
+    data = { 'data': response, };
     return data
 }
 
@@ -81,9 +80,9 @@ async function generateAiResponse(prompt, systemMessage) {
 
 
 module.exports = {
-    generateLection,
     generateAiResponse,
     generateRoadmap,
     checkAnswer,
     generatePersonalizedRoadmap,
+    generateLection,
 }

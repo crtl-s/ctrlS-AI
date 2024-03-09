@@ -43,10 +43,19 @@ function studentRoadmapSystemMessage(generalRoadmap, tema) {
     return systemMessage;
 }
 
+function lectureSystemMessage(vrstaUcenja) {
+    systemMessage = 'Ti si ctrlS asistent. Tvoj zadatak je sastaviti kompletnu lekciju za dati prompt. Budi detaljan i piši u MD formatu.\
+                     Drži se samo lekcije. Ništa više ništa manje. Objasni svaki korak zašto.\
+                     Drži se samo doslovno onoga što se tarži u lekciji. Nemoj izlaziti van okvira lekcije';
+
+    return systemMessage;
+}
+
 module.exports =
 {
     GeneralRoadmapSystemMessage,
     checkAnswerSystemMessage,
     studentRoadmapSystemMessage,
+    lectureSystemMessage,
 }
 

@@ -47,8 +47,8 @@ app.post('/askQuestion', async (req, res) => {
 
 
 app.post('/generateLecture', async (req, res) => {
-    const { tema, cjelina, vrstaUcenja } = req.body;
-    const data = await lekcija.generateLection(tema, cjelina, vrstaUcenja);
+    const { ime_lekcije, vrstaUcenja } = req.body;
+    const data = await lekcija.generateLection(ime_lekcije, vrstaUcenja);
     res.status(200).json(data);
 });
 app.get('/status', (req, res) => {
