@@ -36,6 +36,14 @@ async function generateRoadmap(tema) {
 
 }
 
+async function checkAnswer(pitanje, odgovor) {
+    systemMessage = prepareDataForSystemMessage(pitanje, 1);
+    prompt = 'Pitanje: ' + pitanje + '\n Odgovor: ' + odgovor
+    roadmap = await generateAiResponse(prompt, systemMessage);
+    response = { 'response': roadmap }
+    return response
+}
+
 async function generateLection(tema, cjelina, vrstaUcenja) {
     systemMessage = prepareDataForSystemMessage(tema, 0);
 
@@ -63,14 +71,15 @@ async function generateAiResponse(prompt, systemMessage) {
     }
 }
 
-function prepareDataForSystemMessage(tema, indexFunkcije) {
+function prepareDataForSystemMessage(promptInection, indexFunkcije) {
     // indexFunkcije označava koji nam pormpt treba
     // 0 - generiranje kompletnog roadmapa
+    // 1 - provjera točnosti pitanja
 
     systemMessage = 'Dogodila se greška';
     if (indexFunkcije === 0) {
         systemMessage = 'Ti si ctrlS asistent za učenje. Tvoj primarni zadatak je pomoći učenicima i studentima naučiti neko novo gradivo.\
-                        Primarni zadatak jest da generiraš roadmap za datu temu. Tvoja tema je "'+ tema + ' ". \
+                        Primarni zadatak jest da generiraš roadmap za datu temu. Tvoja tema je "'+ promptInection + ' ". \
                         Ono što meni primarno treba je da mi gneriraš roadmap kao da sam kompletan početnik koji ništa ne \
                         zna o temi.\
                         Ovo je primjer dogborg odgovora:\
@@ -84,6 +93,10 @@ function prepareDataForSystemMessage(tema, indexFunkcije) {
                         Za svaku temu pripremi neka pitanja koja mogu postaviti korisniku da vidim koliko je upoznat sa temom\
                         Važna napomena. Niakko nemoj vraćati u MD formatu. neka bude čisti XML bez ičega više'
     }
+    if (indexFunkcije === 1) {
+        systemMessage = 'Ti si ctrlS asistent. Tvoj zadatak je na postavlejno pitanje vratiti kratak  podgovor je li pitanje dobro odgovoreno ili ne.\
+                         Ukoliko je učenik na pitanje odgvorio točno. Napiši samo DA. Ako je netočno odgovoreno objasni zašto je netočno'
+    }
 
 
 
@@ -95,4 +108,5 @@ module.exports = {
     generateAiResponse,
     prepareDataForSystemMessage,
     generateRoadmap,
+    checkAnswer,
 }

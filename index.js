@@ -17,6 +17,11 @@ app.use(function (req, res, next) {
     next();
 })
 
+app.post('/checkQuestion', async (req, res) => {
+    const { pitanje, odgovor } = req.body;
+    const data = await lekcija.checkAnswer(pitanje, odgovor);
+    res.status(200).json(data);
+});
 
 app.post('/generateRoadmap', async (req, res) => {
     const { tema } = req.body;
