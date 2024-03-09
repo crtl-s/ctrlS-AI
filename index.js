@@ -43,7 +43,7 @@ app.post('/askQuestion', async (req, res) => {
 });
 
 // tri stila učenja
-// angdote, analogies, oversimplify
+// general, analogies, oversimplify
 
 
 app.post('/generateLecture', async (req, res) => {

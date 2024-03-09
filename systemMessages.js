@@ -7,7 +7,7 @@ function GeneralRoadmapSystemMessage(tema) {
     {\
        "roadmap" : \
     [\
-    {"title" : "najosnovniji pojmovi", "description" : "opis teme", "pitanja" : ["question": "Tvoje pitanje"]}\
+    {"title" : "najosnovniji pojmovi"s, "description" : "opis teme", "pitanja" : ["question": "Tvoje pitanje"]}\
     ]\
     }\
     Bitno je da temu odradiš od početka do kraja. Studenti dolaze bez ikakvog predznanja.\
@@ -47,7 +47,13 @@ function lectureSystemMessage(vrstaUcenja) {
     systemMessage = 'Ti si ctrlS asistent. Tvoj zadatak je sastaviti kompletnu lekciju za dati prompt. Budi detaljan i piši u MD formatu.\
                      Drži se samo lekcije. Ništa više ništa manje. Objasni svaki korak zašto.\
                      Drži se samo doslovno onoga što se tarži u lekciji. Nemoj izlaziti van okvira lekcije';
-
+    if (vrstaUcenja != 'general') {
+        aditional = ' Dodatno:\
+                    Prema istraživanju utvrdili smo da student najbolje uči kroz'+ vrstaUcenja + ' . možeš li pokušati koristiti što više' + vrstaUcenja +
+            'kako bi student ostvario najbolji rezultat. Jasno označi kada se radi o' + vrstaUcenja + ' kada ne.\
+                    Pokušaj što češće objasniti zašto je to što učim važno i gdje će mi trebati';
+        systemMessage = systemMessage + aditional;
+    }
     return systemMessage;
 }
 
