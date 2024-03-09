@@ -17,6 +17,15 @@ const openAIHeader = {
 // generiranje roadmapa za učenika
 // generiranje lekcija
 
+async function checkCategoryForTheme(tema) {
+    systemMessage = message.generateSystemMessageForCheckingThemecategory(tema);
+    category = await generateAiResponse(tema, systemMessage);
+    data = { 'category': category };
+    return data
+
+}
+
+
 async function generateRoadmap(tema) {
     systemMessage = message.GeneralRoadmapSystemMessage(tema);
     roadmap = await generateAiResponse("Generiraj mi roadmap", systemMessage);
@@ -85,4 +94,5 @@ module.exports = {
     checkAnswer,
     generatePersonalizedRoadmap,
     generateLection,
+    checkCategoryForTheme,
 }

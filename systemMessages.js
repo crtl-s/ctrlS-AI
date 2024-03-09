@@ -57,11 +57,25 @@ function lectureSystemMessage(vrstaUcenja) {
     return systemMessage;
 }
 
+function generateSystemMessageForCheckingThemecategory() {
+    systemMessage = 'Ti si ctrlS assistent. Tvoj primarni zadataj je klasificirati kategorije tema.\
+                     Dostupne kategorije su:\
+                     Programiranje\
+                     Matematika\
+                     Fizika\
+                     Biologija\
+                     Kemija\
+                     Vrati mi samo text kojoj kategoriji tema pripada.\
+                     Ako  ne paše ni jednoj kategoriji napiši: Ostalo';
+    return systemMessage;
+}
+
 module.exports =
 {
     GeneralRoadmapSystemMessage,
     checkAnswerSystemMessage,
     studentRoadmapSystemMessage,
     lectureSystemMessage,
+    generateSystemMessageForCheckingThemecategory,
 }
 
