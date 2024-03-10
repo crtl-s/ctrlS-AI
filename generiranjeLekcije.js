@@ -2,6 +2,7 @@ require('dotenv').config();
 const message = require('./systemMessages');
 const fs = require('fs');
 const xml2js = require('xml2js');
+const caching = require('./caching');
 
 const openAIHeader = {
     'Content-Type': 'application/json',
@@ -62,6 +63,7 @@ async function generatePersonalizedRoadmap(tema, roadmap) {
 }
 
 async function generateLection(ime_lekcije, vrstaUcenja) {
+    caching.addDataToDatabase(ime_lekcije);
     systemMessage = message.lectureSystemMessage(vrstaUcenja);
     response = await generateAiResponse(ime_lekcije, systemMessage);
     data = { 'data': response, };
