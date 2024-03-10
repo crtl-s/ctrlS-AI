@@ -18,7 +18,7 @@ async function generateAiResponse(razgovor, systemMessage) {
         method: 'POST',
         headers: openAIHeader,
         body: JSON.stringify({
-            model: "gpt-4-turbo-preview",
+            model: "gpt-4-1106-preview",
             messages: [{ "role": "system", "content": systemMessage },
             ...razgovor
             ],
